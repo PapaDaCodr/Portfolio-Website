@@ -1,24 +1,42 @@
-import logo from './logo.svg';
-import './App.css';
+import React from 'react';
+import { BrowserRouter as Router, Route, Routes, useLocation } from 'react-router-dom';
+import { ThemeProvider } from './contexts/ThemeContex';
+import { AnimatePresence } from 'framer-motion';
+import Header from './components/Header';
+import Hero from './components/Hero';
+import TechStack from './components/TechStack';
+import Projects from './components/Projects';
+import About from './components/About';
+import Contact from './components/Contact';
+import PageTransition from './components/PageTransition';
+import './styles/global.css';
+
+const AnimatedRoutes = () => {
+  const location = useLocation();
+
+  return (
+    <AnimatePresence mode="wait">
+      <Routes location={location} key={location.pathname}>
+        <Route path="/" element={<PageTransition><Hero /></PageTransition>} />
+        <Route path="/tech-stack" element={<PageTransition><TechStack /></PageTransition>} />
+        <Route path="/projects" element={<PageTransition><Projects /></PageTransition>} />
+        <Route path="/about" element={<PageTransition><About /></PageTransition>} />
+        <Route path="/contact" element={<PageTransition><Contact /></PageTransition>} />
+      </Routes>
+    </AnimatePresence>
+  );
+};
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <ThemeProvider>
+      <Router>
+        <div className="App">
+          <Header />
+          <AnimatedRoutes />
+        </div>
+      </Router>
+    </ThemeProvider>
   );
 }
 

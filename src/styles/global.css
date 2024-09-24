@@ -1,0 +1,44 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Roboto+Mono&display=swap');
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --background: theme('colors.light-bg');
+  --text: theme('colors.light-text');
+  --text-secondary: theme('colors.light-text-secondary');
+  --primary: theme('colors.light-primary');
+  --secondary: theme('colors.light-secondary');
+  --highlight: theme('colors.light-highlight');
+}
+
+.dark {
+  --background: theme('colors.dark-bg');
+  --text: theme('colors.dark-text');
+  --text-secondary: theme('colors.dark-text-secondary');
+  --primary: theme('colors.dark-primary');
+  --secondary: theme('colors.dark-secondary');
+  --highlight: theme('colors.dark-highlight');
+}
+
+body {
+  @apply bg-[var(--background)] text-[var(--text)] font-poppins;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  @apply font-poppins font-bold;
+}
+
+code {
+  @apply font-roboto-mono;
+}
+
+.cta-button {
+  @apply bg-[var(--primary)] text-white font-bold py-3 px-6 rounded-full transition-all duration-300 hover:scale-105 hover:shadow-lg transform hover:-translate-y-1 focus:outline-none focus:ring-2 focus:ring-[var(--primary)] focus:ring-opacity-50;
+}
+
+.icon {
+  @apply text-[var(--primary)] hover:text-[var(--highlight)] transition-colors duration-300;
+}
