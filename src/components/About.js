@@ -8,7 +8,7 @@ const About = () => {
         <h2 className="text-3xl font-bold text-[var(--primary)] mb-8">About Me</h2>
         <div className="flex flex-col md:flex-row items-center">
           <motion.img
-            src="/path/to/your-photo.jpg"
+            src="me.jpg"
             alt="Osei"
             className="w-64 h-64 rounded-full object-cover mb-8 md:mb-0 md:mr-8"
             initial={{ opacity: 0, scale: 0.5 }}
